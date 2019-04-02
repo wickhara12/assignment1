@@ -5,17 +5,21 @@ from tkinter import *
 from tkinter import filedialog
 
 
-root = Tk()
-try:
-    name_of_file = filedialog.askopenfilename(filetypes=(("All files", "*.*"), ("All files", "*.*")))
-    with open(name_of_file) as file:
-        file_data = file.read()
-        root.destroy()
-        print("\nfile loaded...\n")
+class SavingToPickleFile(object):
 
-except FileNotFoundError:
-    root.destroy()
-    print("Error, no file inserted")
+    @staticmethod
+    def get_file():
+        root = Tk()
+        try:
+            name_of_file = filedialog.askopenfilename(filetypes=(("All files", "*.*"), ("All files", "*.*")))
+            with open(name_of_file) as file:
+                file_data = file.read()
+                root.destroy()
+                print("\nfile loaded...\n")
+                print(file_data)
+        except FileNotFoundError:
+            root.destroy()
+            print("Error, no file inserted")
 
 
 @staticmethod
@@ -28,12 +32,6 @@ def choose_directory():
     except FileNotFoundError:
         root.destroy()
 
-
-with open("data.pickle", "wb") as f:
-    pickle.dump(file_data, f)
-
-with open("data.pickle", "rb") as f:
-    data = pickle.load(f)
-print(data)
+#SavingToPickleFile.get_file()
 
 
