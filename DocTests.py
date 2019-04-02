@@ -1,52 +1,41 @@
-# docTests for class maker
+
+#doctests for assignment one
+
+# checking if the the model.converter does work
+
 """
->>> new_class_name = 'Toy'
->>> print(new_class_name)
-Toy
 
->>> data = 'name'
->>> print(data)
-name
+>>> from model.converter import *
+>>> Converter.start()
+>>> file_content = file_reader('data.pickle')
 
->>> data = 'color'
->>> print(data)
-color
+# checking if the model.fileHandler is working
 
->>> attributes = 'createAttributes()'
->>> print(attributes)
-createAttributes()
+>>> from model.file_handler import *
+>>> Exception = ''
+>>> FileExistsError = ''
+>>> FileNotFoundError = ''
 
->>> methods = 'createMethods()'
->>> print(methods)
-createMethods()
+# checking if the main menu is working correctly
+>>> from mainMenu import Menu
 
->>> new_class_name = 'ToyBox'
->>> print(new_class_name)
-ToyBox
 
->>> ToyBoxData = 'name'
->>> print(ToyBoxData)
-name
+# checking if pickle files are working
+>>> from model.Pickle import *
 
->>> ToyBoxAttributes = 'createAttributes()'
->>> print(ToyBoxAttributes)
-createAttributes()
+# checking if class_maker is working
+>>> from model.class_maker import *
+>>> ClassMaker.method_maker.methods = ''
+>>> ClassMaker.attribute_maker.attributes = ''
 
->>> ToyBoxMethods = 'createMethods()'
->>> print(ToyBoxMethods)
-createMethods()
-
->>> classDiagram = "'ToyBox', 'name', 'createAttributes()', 'createMethods()'"
->>> print(classDiagram)
-'ToyBox', 'name', 'createAttributes()', 'createMethods()'
-
->>> classDiagram = "toy, name, color, createAttributes(), createMethods()"
->>> print(classDiagram)
-toy, name, color, createAttributes(), createMethods()
-
+# checking if the command line is correct
+>>> from Command_Help import  *
+>>> quitter = CommandHelp()
+>>> quitter.cmdloop()
 """
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    # doctest.testmod(verbose=True)
+    doctest.testmod(verbose=True)
+
